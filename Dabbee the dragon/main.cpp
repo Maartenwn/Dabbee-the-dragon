@@ -2,6 +2,7 @@
 #include <math.h>
 #include "GameObject.h"
 #include "MoveToComponent.h"
+#include "MotionInput.h"
 
 int height = 800;
 int width = 1200;
@@ -77,6 +78,12 @@ void idle()
 }
 
 
+void motion(const double& speed)
+{
+	//TODO: Implement
+	printf("flap with the speed of: %f\n", speed);
+}
+
 int main(int argc, char* argv[])
 {
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
@@ -92,7 +99,12 @@ int main(int argc, char* argv[])
 	//opengl init
 	init();
 
+	//motion init
+	MotionInput m( &motion);
+	m.Start(0);
+
 	glutMainLoop();
+
 
 	return 0;
 }
