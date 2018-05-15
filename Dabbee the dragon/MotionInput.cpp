@@ -10,6 +10,8 @@
 #include <ctime>
 #include <cstdlib>
 
+#define MAX_SPEED 2000
+
 using namespace cv;
 using namespace std;
 
@@ -85,10 +87,10 @@ void MotionInput::LocateHands(const Mat& input, double dWidth, double dHeight) {
 				double diffticks = clock() - flapclock;
 				double diffms = (diffticks) / (CLOCKS_PER_SEC / 1000);
 				
-				if (diffms > 2000) 
+				if (diffms > MAX_SPEED)
 					diffms = 0;
 				
-				motionFun(diffms);
+				motionFun(MAX_SPEED - (diffms * 2));
 
 				inFlappingMotion = false;
 			}
