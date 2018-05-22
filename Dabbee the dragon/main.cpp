@@ -77,7 +77,6 @@ void idle()
 	glutPostRedisplay();
 }
 
-
 void motion(const double& speed)
 {
 	//TODO: Implement
